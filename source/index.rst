@@ -280,6 +280,7 @@ continuous parameters.
       spin = np.ones([lattice_size,lattice_size], dtype=int)
 
    and run updates in a loop, updating one random site at a time
+    (numpy random.random() gives random numbers in the interval [0,1) ).
 
    .. code-block:: python
 
@@ -292,15 +293,19 @@ continuous parameters.
 
    .. code-block:: python
 
+         # Note: this should be indented to the same level as x = ... above!
+
          energy_plus  = -(1) * ( spin[x][(y+1)%lattice_size] + spin[x][y-1] 
                                + spin[(x+1)%lattice_size][y] + spin[x-1][y] )
          energy_minus = -(-1) * ( spin[x][(y+1)%lattice_size] + spin[x][y-1] 
                                 + spin[(x+1)%lattice_size][y] + spin[x-1][y] )
-         
+         # energy_minus is -energy_plus, so computation above is a bit 
+         # inefficient but for concreteness we show it here
+
          P_plus  = np.exp( -energy_plus/temperature )
          P_minus = np.exp( -energy_minus/temperature )
    
-   Notice the module lattice size (%lattice_size) in the neighbor index. If the current site
+   Notice the modulo lattice size (%lattice_size) in the neighbor index. If the current site
    is at the lattice boundary, this will point to the other side. We don't need this in the
    negative direction since python does it automatically.
 
