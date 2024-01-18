@@ -1467,7 +1467,7 @@ with
 This defines N-point functions
 
 .. math::
-   \ev{\phi_x,\dots,\phi_y} = \left . \frac{1}{Z(0)}
+   \Braket{\phi_x,\dots,\phi_y} = \left . \frac{1}{Z(0)}
    \frac{\partial}{\partial J_x} \cdots \frac{\partial}{\partial J_y}
    Z(J) \right |_{J=0} 
    :label:
