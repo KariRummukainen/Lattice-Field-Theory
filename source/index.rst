@@ -893,7 +893,7 @@ The expectation value of a measurable that depends on the fields :math:`\phi` an
 is
 
 .. math::
-   \Braket{\phi,\pi}{O(\phi,\pi)}{\phi,\pi}
+   \Braket{\phi,\pi | O(\phi,\pi) | \phi,\pi}
    :label:
 
 and
@@ -901,7 +901,7 @@ and
 .. math::
    &\int \left[\prod_x d\phi({\bf x})\right] \ket{\phi}\bra{\phi} = 1\\
    &\int \left[\prod_x \frac {d\pi({\bf x})}{2\pi} \right] \ket{\pi}\bra{\pi} = 1\\
-   &\Braket{\pi}{\phi} = e^{i\int d^3xdt \pi({\bf x})\phi({\bf x})}
+   &\Braket{\pi \phi} = e^{i\int d^3xdt \pi({\bf x})\phi({\bf x})}
    :label:
 
 We also define field operators
@@ -1127,7 +1127,7 @@ The correlation functions of a classical theory are related to the Greens functi
 Earlier we used the "transfer matrix" :math:`T`,
 
 .. math::
-   T_{\phi_{i+1},\phi_i} = \Braket{ \phi_{i+1} }{ e^{-a_\tau \hat H} }{ \phi_i } 
+   T_{\phi_{i+1},\phi_i} = \Braket{ \phi_{i+1} | e^{-a_\tau \hat H} | \phi_i } 
    :label:
 
 We can write the partition function using the transfer matrix as
@@ -1161,14 +1161,14 @@ Introducing a time dependent operator
 In the limit :math:`N_\tau\to\infty` (and because :math:`a_\tau(i-j) = \tau_i-\tau_j`),
 
 .. math::
-   <\phi_i \phi_j> = \Braket{ 0 }{ \hat\phi \left(\frac{T}{\lambda_0}\right)^{i-j} \hat\phi }{ 0 }
-   = \Braket{ 0 }{ \hat\phi(\tau_i) \hat\phi(\tau_j) }{ 0 }
+   <\phi_i \phi_j> = \Braket{ 0 | \hat\phi \left(\frac{T}{\lambda_0}\right)^{i-j} \hat\phi | 0 }
+   = \Braket{ 0 | \hat\phi(\tau_i) \hat\phi(\tau_j) | 0 }
    :label:
 
 Finally, if including also negative time separation :math:`i-j`, we have 
 
 .. math::
-   <\phi_i \phi_j> =\Braket{ 0 }{ \mathcal T \left[ \hat\phi(\tau_i) \hat\phi(\tau_j) \right] }{ 0 },
+   <\phi_i \phi_j> =\Braket{ 0 | \mathcal T \left[ \hat\phi(\tau_i) \hat\phi(\tau_j) \right] | 0 },
    :label:
 
 where :math:`\mathcal T` is the time ordering operator.
@@ -1180,18 +1180,18 @@ Any Greens function for an operator :math:`\Gamma` can be expanded in terms of e
 (eigenstates of the hamiltonian)
 
 .. math::
-   \Braket{ 0 }{ \Gamma(\tau) \Gamma^\dagger(0) }{ 0 }
+   \Braket{ 0 | \Gamma(\tau) \Gamma^\dagger(0) | 0 }
    &= \frac 1Z \int\left[ d\phi \right ] \Gamma(\tau) \Gamma^\dagger(0) e^{-S}\\
-   &= \Braket{ 0 }{ e^{\hat H \tau} \Gamma(0) e^{-\hat H \tau} \Gamma(0) }{ 0 }\\
-   &= \sum_n  \Braket{ 0 }{ \Gamma(0) }{ E_n }  e^{-E_n \tau}  \Braket{ E_n }{ \Gamma(0) }{ 0 }\\
-   &= \sum_n e^{-E_n\tau} \left| \Braket{ 0 }{ \Gamma(0) }{ E_n } \right|^2
+   &= \Braket{ 0 | e^{\hat H \tau} \Gamma(0) e^{-\hat H \tau} \Gamma(0) | 0 }\\
+   &= \sum_n  \Braket{ 0 | \Gamma(0) | E_n }  e^{-E_n \tau}  \Braket{ E_n | \Gamma(0) | 0 }\\
+   &= \sum_n e^{-E_n\tau} \left| \Braket{ 0 | \Gamma(0) | E_n } \right|^2
    :label:
 
 At long enough distances we find
 
 .. math::
-   \Braket{ 0 }{ \Gamma(\tau) \Gamma^\dagger(0) }{ 0 } 
-   \to e^{-E_0\tau} \left| \Braket{ 0 }{ \Gamma(0) }{ E_0 } \right|^2,
+   \Braket{ 0 | \Gamma(\tau) \Gamma^\dagger(0) | 0 } 
+   \to e^{-E_0\tau} \left| \Braket{ 0 | \Gamma(0) | E_0 } \right|^2,
    \textrm{ when } \tau \to \infty
    :label:
 
@@ -3050,7 +3050,7 @@ numbers as the intended state. For example for the scalar meson :math:`\sigma` w
 The correlation function corresponds to the propagator
 
 .. math::
-   \ev{O(x)O(y)} = \Braket{0}{\hat O^\dagger(x) \hat O(y)}{0} = \Braket{0}{ \hat\psi^\dagger_x\hat\psi_x \hat\psi^\dagger_y\hat\psi_y}{0}.
+   \ev{O(x)O(y)} = \Braket{0 | \hat O^\dagger(x) \hat O(y) | 0} = \Braket{0 | \hat\psi^\dagger_x\hat\psi_x \hat\psi^\dagger_y\hat\psi_y | 0}.
    :label:
 
 The operator will first create a combination of energy eigenstates with the quantum numbers
