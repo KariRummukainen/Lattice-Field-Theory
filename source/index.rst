@@ -121,7 +121,7 @@ the Boltzmann distribution,
 
 .. math::
    Z & =\int[\prod_{i}ds_{i}]e^{-\frac{1}{kT}E(s)}\\
-     & =\int[\prod_{i}ds_{i}]e^{-\frac{J}{kT}\sum_{<ij>}\mathbf{s}_{i}\mathbf{s}_{j}+\frac{\gamma}{kT}\mathbf{H}\cdot\sum_{i}\mathbf{s}_{i}}
+     & =\int[\prod_{i}ds_{i}]e^{\frac{J}{kT}\sum_{<ij>}\mathbf{s}_{i}\mathbf{s}_{j}+\frac{\gamma}{kT}\mathbf{H}\cdot\sum_{i}\mathbf{s}_{i}}
    :label:
 
 The thermal expectation value of an observable :math:`O` is then
@@ -135,7 +135,6 @@ magnetization disappears.
 
 
 
-
 The Ising Model
 -----------------
 
@@ -143,11 +142,11 @@ The Ising model is a further simplification of the above. All the spins
 are either :math:`+1` or :math:`-1`. The partition function then is
 
 .. math::
-   Z =\sum_{s_{i}=\pm1}e^{-\beta\sum_{<ij>}s_{i}s_{j}+h\cdot\sum_{i}s_{i}}.
+   Z =\sum_{s_{i}=\pm1}e^{\beta\sum_{<ij>}s_{i}s_{j}+h\cdot\sum_{i}s_{i}}.
    :label:
 
 Here we use dimensionless couplings, :math:`\beta=\frac{J}{kT}` and
-:math:`h=\frac{\gamma H}{kT}`.
+:math:`h=\frac{\gamma H}{kT}`, so that :math:`\beta E = -\beta\sum_{<ij>}s_{i}s_{j}+h\cdot\sum_{i}s_{i}`.
 
 The Ising model has been solved in 1 and 2 dimensions (Onsager 1944, Yang 1952).
 
@@ -356,7 +355,7 @@ Similar to the Ising model, but there are :math:`N` possible spins. Neighboring 
 lower energy if they are equal.
 
 .. math::
-   E = -\beta\sum_{<ij>} \delta(s_{i},s_{j}) + |h| \sum_{i} \delta(\hat h, s_{i})
+    E = -J\sum_{<ij>} \delta(s_{i},s_{j}) - |h| \sum_{i} \delta(\hat h, s_{i})
    :label:
 
 
@@ -367,8 +366,8 @@ The distance between spins is represented by the dot product, or equivalently th
 of the difference of the angles.
 
 .. math::
-   E &= -\beta\sum_{<ij>} \cos( \alpha_i - \alpha_j ) + |h| \sum_{i} \cos( \alpha_i - \alpha_h )\\
-     &= -\beta\sum_{<ij>} s_{i} \cdot s_{j} + h \cdot \sum_{i} s_{i}
+   E &= -J\sum_{<ij>} \cos( \alpha_i - \alpha_j ) - |h| \sum_{i} \cos( \alpha_i - \alpha_h )\\
+     &= -J\sum_{<ij>} s_{i} \cdot s_{j} - h \cdot \sum_{i} s_{i}
    :label:
 
 
@@ -377,7 +376,7 @@ of the difference of the angles.
 Similarly, spins can be represented by N-dimensional vectors.
 
 .. math::
-   E = -\beta\sum_{<ij>} s_{i} \cdot s_{j} + h \cdot \sum_{i} s_{i}
+   E = -J\sum_{<ij>} s_{i} \cdot s_{j} + h \cdot \sum_{i} s_{i}
    :label:
 
 
@@ -479,7 +478,7 @@ and assume periodic boundary conditions
 First we'll write the energy in a symmetric way between the neighboring sites
 
 .. math::
-   E &= \beta\sum_{x=1}^L s_x s_{x+1} +h\sum_{x=1}^L s_x\\
+   \beta \beta E &= -\beta\sum_{x=1}^L s_x s_{x+1} - h\sum_{x=1}^L s_x\\
      &=\sum_{x=1}^L \left( \beta s_x s_{x+1} + \frac 12 h (s_x + s_{x+1}) \right)
    :label:
 
