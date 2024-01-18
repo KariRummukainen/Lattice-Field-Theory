@@ -846,7 +846,7 @@ it turns out you the quantum mechanical version of relativistic electromagnetism
 Quantum field theory builds on this observation and uses field theories to describe other particles
 as well.
 
-Let's consider a scalar field theory is Minkowsky spacetime (the field :math:`\phi` could also represent a more complicated set of fields). Given the action
+Let's consider a scalar field theory is Minkowski spacetime (the field :math:`\phi` could also represent a more complicated set of fields). Given the action
 
 .. math::
    S = \int d^3 dt \mathcal L(\phi,\partial_t \phi) = \int d^3 dt \left [ \frac 12 \partial_\mu \phi \partial^\mu\phi - V(\phi) \right ]
@@ -934,7 +934,7 @@ Then we will follow essentially the same steps in field theory at thermal equili
 The Path Integral Representation
 -----------------------------------
 
-First, let us quickly introduce the path integral representation in Minkowsky space. We will not
+First, let us quickly introduce the path integral representation in Minkowski space. We will not
 derive this, since the derivation is essentially the same in thermal field theory and we will do
 it there.
 The expectation value of an observable is
@@ -1114,7 +1114,7 @@ in 4 dimensions with periodic boundary conditions.
 In summary
 
 +-------------------------+------------------------------------------------------------------------------------+
-| Minkowsky               |   Euclidean                                                                        |
+| Minkowski               |   Euclidean                                                                        |
 +-------------------------+------------------------------------------------------------------------------------+
 |:math:`\mathcal L_M`     |  :math:`\mathcal L_E = - \mathcal L_M|_{x_i \to ix_0; \partial_0 \to i\partial_0}` |
 +-------------------------+------------------------------------------------------------------------------------+
@@ -1413,7 +1413,7 @@ the continuum and describes a single particle.
 
 **Poles of the Propagator**
 
-In Minkowsky spacetime the propagator has a pole at
+In Minkowski spacetime the propagator has a pole at
 :math:`k_0^2 = k_ik^i + m^2` and this defines the dispersion
 relation of a free particle.
 In Euclidean time there is no pole since the square in the denominator
@@ -2384,7 +2384,7 @@ the anticommutation relation
 In 4 dimensions they are :math:`4\times 4` matrices.
 The fields :math:`\psi` are actually length 4 vectors in the same vector space.
 Since we are using the Euclidean metric, the gamma matrices may be different from the
-ones you are used to. We could derive them from the Minkowsky space gamma matrices by
+ones you are used to. We could derive them from the Minkowski space gamma matrices by
 
 .. math::
    &\gamma_0 = \gamma_0^M\\
