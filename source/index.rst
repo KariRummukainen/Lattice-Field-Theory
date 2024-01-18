@@ -790,8 +790,10 @@ Writing :math:`\tau = \beta-\beta_c`:
 
 .. math::
    <M> &= 0 \textrm{ at } \beta \leq \beta_c \textrm{ and }\\
-   <M> &\sim |\tau|^\delta \textrm{ at } \beta > \beta_c
+   <M> &\sim |\tau|^\beta \textrm{ at } \beta > \beta_c  \textrm{~ Note: }\beta\textrm{ in the exponent is not the coupling, but conventional notation for the magnetic exponent}
    :label:
+
+
 
 The critical exponents are characteristic to the symmetries and dimensionality of the model.
 This is an important property of higher order transitions known as universality.
