@@ -1664,7 +1664,7 @@ with an unknown normalization coefficient :math:`C`.
 We then find
 
 .. math::
-   \ev{O} = \frac 1N \sum_i O(\phi_i)
+   \Braket{O} = \frac 1N \sum_i O(\phi_i)
    :label:
 
 Notice that since the normalization coefficient drops out in the
