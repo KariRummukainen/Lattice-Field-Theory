@@ -1685,7 +1685,7 @@ correlation between measurements separated by time :math:`t`
 normalized by the overall variation:
 
 .. math::
-   C(t) = \frac{\frac{1}{N-t} \sum_{i=1}^{N-t} X_i X_{i+t} - \ev{X}^2 }{\ev{X^2} - \ev{X}^2}
+   C(t) = \frac{\frac{1}{N-t} \sum_{i=1}^{N-t} X_i X_{i+t} - \Braket{X}^2 }{\Braket{X^2} - \Braket{X}^2}
    :label:
 
 This is normalized to :math:`C(0)=1`.
@@ -1715,16 +1715,16 @@ In a Monte Carlo simulation, the corrected error estimate is
 
 .. math::
    \sigma_X = \sqrt{2\tau_{int}} \sigma_{X, naive}
-   = \sqrt{2\tau_{int} \frac{ \sum_i \left(X_i - \ev{X}\right)^2 }{N(N-1)} }
+   = \sqrt{2\tau_{int} \frac{ \sum_i \left(X_i - \Braket{X}\right)^2 }{N(N-1)} }
    :label:
 
 In practice :math:`N` is always finite. Taking this into account, the 
 formula for the autocorrelation function is modified slightly:
 
 .. math::
-   &C(t) = \frac{\frac{1}{N-t} \sum_{i=1}^{N-t} X_i X_{i+t} - \ev{X}_1 \ev{X}_2 }{\ev{X^2} - \ev{X}^2},\\
-   &\ev{X}_1 = \frac{1}{N-t} \sum_{i=1}^{N-t} X_i, \textrm{ and}\\
-   &\ev{X}_2 = \frac{1}{N-t} \sum_{i=t}^{N} X_i
+   &C(t) = \frac{\frac{1}{N-t} \sum_{i=1}^{N-t} X_i X_{i+t} - \Braket{X}_1 \Braket{X}_2 }{\Braket{X^2} - \Braket{X}^2},\\
+   &\Braket{X}_1 = \frac{1}{N-t} \sum_{i=1}^{N-t} X_i, \textrm{ and}\\
+   &\Braket{X}_2 = \frac{1}{N-t} \sum_{i=t}^{N} X_i
    :label:
 
 
