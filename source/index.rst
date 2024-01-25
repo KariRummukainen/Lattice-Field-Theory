@@ -1648,7 +1648,7 @@ In lattice simulations though, this is exactly what we do.
 We are actually calculating
 
 .. math::
-   \ev{O} = \frac {\int [d\phi] O(\phi) e^{-S(\phi)} }{\int [d\phi] e^{-S(\phi)}}
+   \Braket{O} = \frac {\int [d\phi] O(\phi) e^{-S(\phi)} }{\int [d\phi] e^{-S(\phi)}}
    :label:
 
 If we normalize the two integrals in the same way, the normalization drops out.
@@ -2194,7 +2194,7 @@ Observables
 
 Any observables constructed out of gauge dependent objects should be gauge invariant.
 The gauge symmetry forces the expectation value of any non-invariant objects to zero
-(Elitzur’s theorem). For example, :math:`\ev{U_{x,\mu}} = 0`
+(Elitzur’s theorem). For example, :math:`\Braket{U_{x,\mu}} = 0`
 
 
 **Wilson Loops**
@@ -2265,15 +2265,15 @@ around the lattice. Since the lattice is periodic, this forms a closed loop:
 Similarly to the above, the this corresponds to a propagator and scales exponentially,
 
 .. math::
-   \ev{P} = e^{-T F_Q}.
+   \Braket{P} = e^{-T F_Q}.
    :label:
 
 Here :math:`F_Q` is the free energy of a single charged quark.
 In a confining model charged quarks cannot appear alone and :math:`F_Q\to\infty`.
-So we should find :math:`\ev{P}\to 0`. 
+So we should find :math:`\Braket{P}\to 0`. 
 
 Both :math:`SU(2)` and :math:`SU(3)` have a deconfining transition and are not 
-confining at high temperatures. Above some critical temperature we find :math:`\ev{P} \neq 0`.
+confining at high temperatures. Above some critical temperature we find :math:`\Braket{P} \neq 0`.
 The same result can of course be found using Wilson loops, but the Polyakov line provides
 a particularly straightforward method.
 
@@ -2307,7 +2307,7 @@ Since all configurations that differ by a center trasnformation have the same we
 the expectation value is
 
 .. math::
-   \ev P = \frac 1N \sum_{n=0}^{N-1} e^{in\pi/N} \ev P = 0.
+   \Braket P = \frac 1N \sum_{n=0}^{N-1} e^{in\pi/N} \Braket P = 0.
    :label:
 
 The center symmetry transformations are similar to the symmetries of an :math:`Z_N` spin model
@@ -2816,7 +2816,7 @@ larger than one.
 
 So it is sufficient to add one more term to the lattice action a find the value of it's coefficient to build an order
 :math:`a` improved lattice action. Notice, though, that when calculating the expectation value of an operator,
-:math:`\ev{O}`, the measurement may still have order :math:`a` effects if the operator :math:`O` itself does.
+:math:`\Braket{O}`, the measurement may still have order :math:`a` effects if the operator :math:`O` itself does.
 The operator can be improved following the same process as for the action.
 
 The process of finding all operators that mix with the action and measurable operators to a given order and setting
@@ -3010,7 +3010,7 @@ The fermion propagator is
 
 .. math::
    P_{xy} &= \partial_{J_x} \partial_{J_y} \frac 1Z \int d\bar\psi \psi e^{a^4\sum_{x,y} \bar\psi_x M_{x,y} \psi_y + \bar\psi_x \eta_y + \bar \eta_x \psi_y  } \\
-   & = \ev{ M^{-1} }_{xy}
+   & = \Braket{ M^{-1} }_{xy}
    :label:
 
 This can be obtained directly from lattice simulations if the inverse :math:`M^{-1}` can be calculated.
@@ -3031,7 +3031,7 @@ and can have additive renormalization. Nevertheless the mass is related to the c
 here. Specifically, we use the Ward identity
 
 .. math::
-   \partial_\mu \ev{\bar\psi_x \gamma_\mu \gamma_5 \tau_a \psi_x O(y)} = 2 m \ev{\bar\psi_x \gamma_\mu \gamma_5 \tau_a \psi_x O(y)}
+   \partial_\mu \Braket{\bar\psi_x \gamma_\mu \gamma_5 \tau_a \psi_x O(y)} = 2 m \Braket{\bar\psi_x \gamma_\mu \gamma_5 \tau_a \psi_x O(y)}
    :label:
 
 for :math:`x \neq y`. This relation is also known as the partially conserved axial current relation (PCAC) and so
@@ -3045,13 +3045,13 @@ the mass of a bound state, we calculate the correlation function of an operator 
 numbers as the intended state. For example for the scalar meson :math:`\sigma` we could use
 
 .. math::
-   O(x) = \bar\psi_x\psi_x \textrm{,  } P(x-y) = \ev{\bar\psi_x\psi_x \bar\psi_y\psi_y}.
+   O(x) = \bar\psi_x\psi_x \textrm{,  } P(x-y) = \Braket{\bar\psi_x\psi_x \bar\psi_y\psi_y}.
    :label:
 
 The correlation function corresponds to the propagator
 
 .. math::
-   \ev{O(x)O(y)} = \Braket{0 | \hat O^\dagger(x) \hat O(y) | 0} = \Braket{0 | \hat\psi^\dagger_x\hat\psi_x \hat\psi^\dagger_y\hat\psi_y | 0}.
+   \Braket{O(x)O(y)} = \Braket{0 | \hat O^\dagger(x) \hat O(y) | 0} = \Braket{0 | \hat\psi^\dagger_x\hat\psi_x \hat\psi^\dagger_y\hat\psi_y | 0}.
    :label:
 
 The operator will first create a combination of energy eigenstates with the quantum numbers
@@ -3101,14 +3101,14 @@ This is similar to the propagator calculations in the previous chapters, where w
 
 
 .. math::
-   \ev{\bar\psi_x \psi_y } &= \frac 1Z \int dU d\bar\psi d\psi \bar\psi_x \psi_y e^{-\bar\psi M(U) \psi - S_{gauge}} \\
+   \Braket{\bar\psi_x \psi_y } &= \frac 1Z \int dU d\bar\psi d\psi \bar\psi_x \psi_y e^{-\bar\psi M(U) \psi - S_{gauge}} \\
    &= \frac 1Z \int dU \left ( M(U)^-1 \right )_{xy} e^{- S_{gauge}}
    :label:
 
 Now we can combine each :math:`\bar\psi` with each :math:`\psi` separately, leading to two terms:
 
 .. math::
-   \ev{\bar\psi_x \psi_y } &= \frac 1Z \int dU d\bar\psi d\psi \bar\psi_x\Gamma \psi_x \bar\psi_y\Gamma \psi_y e^{-\bar\psi M(U) \psi - S_{gauge}} \\
+   \Braket{\bar\psi_x \psi_y } &= \frac 1Z \int dU d\bar\psi d\psi \bar\psi_x\Gamma \psi_x \bar\psi_y\Gamma \psi_y e^{-\bar\psi M(U) \psi - S_{gauge}} \\
    &= \frac 1Z \int dU Tr \left [ \Gamma \left ( M(U)^-1 \right )_{xy} \Gamma \left ( M(U)^-1 \right )_{yx} \right ] e^{- S_{gauge}} \\
    &+ \frac 1Z \int dU Tr \left [ \Gamma \left ( M(U)^-1 \right )_{xx} \right ] Tr \left [ \Gamma \left ( M(U)^-1 \right )_{yy}\right ] e^{- S_{gauge}} 
    :label:
@@ -3147,7 +3147,7 @@ The last point results from the second as long as the step size is small, but in
 it is good to check that
 
 .. math::
-   \ev{e^{-\delta S}} = 1
+   \Braket{e^{-\delta S}} = 1
    :label:
 
 
