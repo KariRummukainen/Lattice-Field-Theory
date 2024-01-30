@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage{graphicx} 
+\usepackage{enumitem} 
+
+\title{Lattice Field Theory - Exercise Session 17.1-25.1}
+
+\begin{document}
+
+\maketitle
+
+This exercise session will be centered on the Ising model and on the code listing of "The Ising Model" subsection with dimensionless $J/k=1$, on the "Motivation" chapter of the notes. 
+
+Note: although the listing is implemented in Python, feel free to implement this in your language of choice!
+
+\begin{enumerate}
+
+\item Although the current code listing computes an energy measurement every iteration, this is unnecessary. Implement a parameter to control how frequently to skip measurement computation. Add a way to introduce some "burn-in"or some warm-up steps being executed (say $10000$) before any measurement computation.
+
+\item Add the computation of the magnetization observable $\langle M \rangle$. The main goal here is to sample it enough times to understand how it behaves in relation to temperature, and if our code shows the existence of an ordered and disordered phase. Throughout this exercise, we will work in the temperature range $T \in [0.025,5]$, lattice size of 20 (400 spins total).
+
+\item Add an external magnetic field $\bar{h} = \gamma H / k = 0.1$. The goal here is to see what happens to the magnetization $\langle M \rangle$ for different vallues of $\bar{h}$, in particular for very large or very small values. Suggested values in addition to the aforementioned one, include $\bar{h}=0$, $\bar{h}=0.01$ and $\bar{h}=5.0$. 
+
+\item We can change heat bath to another update algorithm such as Metropolis-Hastings. As written in the repository course notes, it requires randomly generating a new candidate state, and then calculating the probability as,
+
+\begin{equation}
+W(s0 \rightarrow s1) = min(1, e^{-\beta [E(s_1)-E(s_0)] } )
+\end{equation}
+
+which basically means if the "jump" is uphill (decrease of energy), we accept the new state without further questions, but if it is "downhill" (increase of energy), the probability will guide rejection as in heat bath. Repeat exercise 3 with the Metropolis update.
+
+\end{enumerate}
+
+\end{document}
