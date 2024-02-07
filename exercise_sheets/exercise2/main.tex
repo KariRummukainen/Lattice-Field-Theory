@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage{graphicx} 
+\usepackage{enumitem} 
+\usepackage{listings}
+
+
+\title{Lattice Field Theory - Exercise Session 25.1-01.2}
+
+\begin{document}
+
+\maketitle
+
+This exercise session will be centered around autocorrelation time and behaviour of Ising 2D with different algorithms. You will need the Metropolis-Hastings version of the Ising 2D code used in the previous exercise. Feel free to use your own, or the uploaded Python solution of exercise 1 (on github). For this exercise session, we will operate with no external field $\bar{h}=0$ and $\bar{J}=1$. 
+
+\begin{enumerate}
+
+\item  Let us now implement the Cluster Wolff algorihm and plot the magnetization. Choose a warm up of 1000 steps. Add 1000 computation steps. For this algorithm, begin by,
+\begin{enumerate}
+\item 1. Choose site x,y at random
+\item Precompute probability of adding site to cluster $P_{add}= 1- exp(-2J/T)$
+\item Initialize two lists of coordinates, one named Cluster another Pocket. One will contain all coordinates belonging to a cluster of spins, the other of immediate neighbours to which one should jump to, in order to grow the cluster. Something like Cluster = [[x,y]] should do the trick.
+\item Now this is the hard part, and for this reason I've elected to provide some pseudocode:
+
+\begin{lstlisting}
+
+    while Pocket is not empty:
+        Pocket_new = []
+        for i,j coordinate pairs in Pocket:
+	    # find all the neighbours, 
+	    #remember to wrap around boundaries
+            ip1 = (i+1) % lattice_size
+            im1 = (i-1+lattice_size) %lattice_size
+            jp1 = (j+1) % lattice_size
+            jm1 = (j-1+lattice_size) %lattice_size
+            nbr = [[ip1,j], 
+                   [im1,j], 
+                   [i,jp1], 
+                   [i,jm1]]
+	    #Now we go over all neighbours of current spin
+            for l in nbr:
+                if spin[l] == spin[current coordinate in Pocket] 
+			if l not in Cluster:
+                    		if random number < P_add:
+					Add spin[l] to Pocket_new 
+					Add spin[l] to Cluster
+	# Remember to reset Pocket, 
+	# we need to keep growing the cluster
+	# so we must jump to new spins
+        Pocket = Pocket_new 
+\end{lstlisting}
+
+\item Flip all spins in cluster - done!
+
+Be very careful to get all of the indents right! After all of this a single update sweep of Cluster Wolff is coded. Show me what the magnetization $|M|$ looks like in the range $T\in[1,5]$.
+\end{enumerate} 
+
+\item Let us implement the autocorrelation function of the magnetization observable. Reminder the autocorrelation function is given by,
+
+\begin{equation}
+	C(t) = \frac{\frac{1}{N-t} \sum_{i=1}^{N-t} \bigg[ X_{i} X_{i+t} \bigg] -\langle X \rangle_1 \langle X \rangle_2}{\langle X^2 \rangle - \langle X \rangle ^2}
+\end{equation}
+
+where,
+
+\begin{equation}
+\langle X \rangle_1 =  \frac{1}{N-t} \sum_{i=1}^{N-t} X_i ,
+\end{equation}
+\begin{equation}
+\langle X \rangle_2 =  \frac{1}{N-t} \sum_{i=t}^{N} X_{i},
+\end{equation}
+
+Plot the autocorrelation function normalized with the first step, $C(t)/C(0)$ as a function of steps for three different temperatures, $T\in[1,5]$. Trick: compute C(t) with $t\in [0,t_{max}]$, where $t_{max}=70$. This is necessary to also remove the decorrelated noise at large $t$. Has the advantageof being computationally easier. How does this compare with Metropolis, is the exponential fall-off faster or slower?
+
+ 
+\end{enumerate}
+
+\end{document}
