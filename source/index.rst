@@ -2143,19 +2143,19 @@ option:
    2. Calculate the initial action 
 
       .. math::
-         S_1 = Re U_{x,\mu} S_{x,\mu}
+         S_1 = -\beta Re U_{x,\mu} S_{x,\mu}
          :label:
 
    3. Suggest the change 
    
       .. math::
-         A'_{x,\mu} &= \left . A_{x,\mu} + C x \right |_{mod(2\pi)},\\
+         A'_{x,\mu} &= \left . A_{x,\mu} + C X \right |_{mod(2\pi)},\\
          U_{x,\mu} &= e^{iA_{x,\mu}} = \cos(A_{x,\mu}) + i \sin(A_{x,\mu})
          :label:
 
       (Here :math:`a=1`)
 
-   4. Accept with the propability
+   4. Accept with the probability
 
       .. math::
          W_f(\phi_x \to \phi'_x) = min\left( 1, e^{- [ S(\phi'_x) - S(\phi_x) ]} \right )
@@ -2465,7 +2465,7 @@ Grassmann numbers we need to do a bit of Grassmann algebra.
 First, we define the derivative operator as similarly to standard numbers as possible:
 
 .. math::
-   \partial_\psi \psi = 1, \textrm{  } \partial_\psi \psi = 0, \textrm{  } \partial_\psi c = 0,
+   \partial_\psi \psi = 1, \textrm{  } \partial_\psi \bar\psi = 0, \textrm{  } \partial_\psi c = 0,
    :label:
 
 where :math:`\psi` and :math:`\bar\psi` are Grassman numbers and :math:`c` is a complex number.
@@ -2473,7 +2473,7 @@ where :math:`\psi` and :math:`\bar\psi` are Grassman numbers and :math:`c` is a 
 The integral is defined identically,
 
 .. math::
-   \int d\psi \psi = 1 , \textrm{  } \int d\psi \psi = 0 \textrm{ and } \int d\psi c = 0
+   \int d\psi \psi = 1 , \textrm{  } \int d\psi \bar\psi = 0 \textrm{ and } \int d\psi c = 0
    :label:
 
 While this may seem a bit unusual, the Grassmann integral follows the most important standard
