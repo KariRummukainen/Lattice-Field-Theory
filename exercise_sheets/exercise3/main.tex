@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage{graphicx} 
+\usepackage{enumitem} 
+\usepackage{listings}
+
+
+\title{Lattice Field Theory - Exercise Session 01.2-08.2}
+
+\begin{document}
+
+\maketitle
+
+This exercise is a bit more in the analytical vein than the previous ones, we will merely focus on scalar field discretization and on the correlators. This is in preparation for the next exercise sheet, which will indeed be more computational.
+
+\begin{enumerate}
+
+\item Let us begin by studying discretization erros. Consider the one-dimensional action $S$ for a massless free scalar field theory ($\phi \in R$) and it's lattice counterpart $S_{L}$,
+
+\begin{equation}
+S = \int dx \frac{1}{2} (\partial \phi)^2 \rightarrow S_{L} = \sum_x a \frac{1}{2} \bigg( \frac{\phi(x+a) - \phi(x)}{a} \bigg)^2
+\end{equation}
+
+\begin{enumerate}
+
+\item Show me the lattice action can be re-written in a more elegant way as,
+
+\begin{equation}
+S = - \sum_x a \frac{1}{2} \phi(x) \frac{\phi(x+a) -2\phi(x) + \phi(x-a)}{a^2}
+\end{equation}
+Tip: $\sum_x f(x+a) = \sum_x f(x)$.
+
+\item Show that the discretization errors of the action are of order $\mathcal{O}(a^2)$. Tip: Taylor expand $\phi(x+a)$
+
+\end{enumerate}
+
+\item Alright, let's move on to studying correlation function $\langle \phi_x \phi_y \rangle$. Generically in d-dimensions, and with a mass $m$, the lattice action will read,
+
+
+\begin{equation}
+ S = \frac{a^d}{2} \sum_{x, y} \phi_x M_{x,y} \phi_y 
+\end{equation}
+
+where $M_{x,y}$ is given by,
+
+\begin{equation}
+M_{x,y} = -\sum_{\mu} \frac{1}{a^2} (\delta_{x+\mu, y} -2\delta_{x, y} + \delta_{x-\mu, y}) + m^2\delta_{x,y}
+\end{equation}
+where $\mu$ is a basis vector (length $a$), and $x,y$ are vectors ie. $x_\mu = a n_\mu$. We have encountered the 1D massless specialization in the previous exercise. The two point propagator can be written,
+
+\begin{equation}
+\langle \phi_x \phi_y \rangle = \frac{1}{Z(0)} \partial_{J_x} \partial_{J_y} Z(J) \Bigr|_{J=0}
+\end{equation}
+
+\begin{enumerate}
+\item Find a source (and cite it) for an n-dimensional Gaussian integral.
+
+\item Assuming $M_{x,y}$ is invertible and diagonalizable, complete the square and find $\langle \phi_{x} \phi_{y} \rangle$.
+
+\item Find the momentum space propagator $G(k)$ using the Green's function method, ie. take the Fourier transform,
+
+\begin{equation}
+a^d \sum_y G_{xy} M_{yz} = \delta_{xz}.
+\end{equation}
+
+The result should be,
+
+\begin{equation}
+G(k) =\frac{1}{\sum_\mu \bigg[ \frac{4}{a^2}sin^2(k_\mu \frac{a}{2})  + m^2\bigg]}.
+\end{equation}
+
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
