@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage{graphicx} 
+\usepackage{enumitem} 
+\usepackage{listings}
+\usepackage{hyperref}
+
+
+\title{Lattice Field Theory - Exercise Session 08.2-15.2}
+
+\begin{document}
+
+\maketitle
+
+This exercise session will be centered around $\phi^4$ on a lattice. Feel free to use some of the updated Metropolis solutions to adapt to the new exercise.
+
+\begin{enumerate}
+
+\item  We will use the Metropolis algorithm to try our hand $\phi^4$ lattice field theory, on a 2-dimensional lattice. Consider then the following re-scaled action,
+
+\begin{equation}
+	S_L =  \sum_x \bigg[ - 2\kappa \sum_\mu \phi_x \phi_{x+\mu} + (1-2\lambda) \phi^2 + \lambda \phi^4 \bigg]
+\end{equation}
+
+where $\phi = \frac{\sqrt{2\kappa}}{a} \phi$, $a^2 m^2 = \frac{1-2\lambda}{\kappa} - 8 $ and $g=\frac{6\lambda a^2}{\kappa^2}$. Use the metropolis algorithm as usual but propose a new candidate state as $\phi_{new} = \phi_{old} + R$ where R is some random number drawn from the standard normal distribution with variance $1$ and mean $0$. Start with "Warm" initial conditions, of a lattice of random uniformly distributed numbers from 0 to 1. A burn-in of at least $10000 L^2$ for a lattice of $L=32$ ($16$ if your computer is struggling), is necessary.
+
+Show me the absolute magnetization (Vaccuum expectation value), $|\langle M \rangle| = \frac{1}{L^2}| \sum_x \phi(x) |$ for $\kappa \in [0.22,0.3]$ with $\lambda = 0.02$. There should be a phase transition, with the critical value being at $\kappa_c \approx 0.27$.
+
+\item Let us implement the two-point correlation function $G(r)$, where $r$ is the (minimum - careful with boundary conditions) distance between sites $i$ and $j$. This function will involve computing $\langle \phi_x \phi_{x+\mu} \rangle - \langle \phi_x \rangle \langle \phi_{x+\mu} \rangle$. The second term is simply the magnetization squared, which is simple to compute. The first term however, can end up seemingly more difficult, especially given the minimum distance requirement.  The easiest way to do this in Python is to use the numpy.roll function along a given axis (choose either only colummns or only rows for simplicity, we pay the price in statistics, but this is ok), with a shift term equal to $r \in [0,L-1]$ and then average. Show me $G(r)$, for $\lambda=0.02$ and $\kappa=0.31$. 
+
+Although we won't further pursue this, keep in mind that the two-point correlator, leads to one obtaining the renormalized mass. See for example, \href{https://arxiv.org/abs/1705.06231}.
+\end{enumerate}
+
+\end{document}
