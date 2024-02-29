@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage{graphicx} 
+\usepackage{enumitem} 
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{amsfonts}
+
+
+\title{Lattice Field Theory - Exercise Session 15.2-22.2}
+
+\begin{document}
+
+\maketitle
+
+This exercise session will be centered around gauge fields on a lattice. This one is purely analytical and will focus on gauge invariance on the lattice and on reproduction of continuum limits.
+
+For an $SU(N)$ non-Abelian symmetry, the lattice action reads,
+\begin{equation}
+S = -\beta \sum_x \sum_{\mu > \nu} 1 - \frac{1}{N} Re Tr U_{x,\mu} U_{x+\mu, \nu} U_{x+\nu, \mu}^* U_{x,nu}^* 
+\end{equation}
+
+Again, the gauge matrix is a special unitary matrix, and due to the non-abelian nature of the symmetry, $[ A_{x,\mu}, A_{y,\nu} ] \neq 0$. 
+
+\begin{enumerate}
+
+\item Show that this abovementioned plaquette action, generates the correct continuum limit,
+
+\begin{equation}
+S = \int dx Tr F_{x,\mu\nu} F^{x,\mu \nu}
+\end{equation}
+
+Tip: Remember to take into account the Baker-Campbell-Hausdorff formula.
+
+\item Let us now assume the lattice theory above "lives" on an Euclidean lattice at non-zero temperature, where the lattice extent in imaginary time direction is $1/T = aN_t$, and the boundaries are all periodic. The Polyakov loop is defined as the trace of the product of link matrices along a closed path in the t-direction:
+
+\begin{equation}
+P(x) = Tr [ U_t(x,1) U_t(x,2)...U_t(x,N_t)  ]
+\end{equation} 
+
+\begin{enumerate}
+\item Show me that this quantity is gauge invariant.
+
+\item The center of a group is the set of group elements which commute with all elements of the group. What are the centers of $SU(2)$ and $SU(3)$? 
+
+Tip: Center elements must be proportional to the unit matrix, and belong to the group.
+
+\item Let $z$ be some member of the center of the gauge group, $z \in \mathbb{Z}_{2,3}$. Under the transformation,
+
+\begin{equation}
+U_0(x,t) \rightarrow zU_0(x,t)
+\end{equation} 
+
+for all x and some fixed t, argue that the action is invariant but that $P(x)$ is not. 
+
+Although we won't further pusue this, the breaking of these center symmetries at high temperatures, along with its restoration at low temperatures is reflected in the order parameter $\langle P \rangle$, which will either be nill (low temperature, confinement) or different from zero (high-temperature, deconfinement).
+
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
